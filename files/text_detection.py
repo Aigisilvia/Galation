@@ -10,7 +10,7 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'shentai_file.json'
 
 client = vision.ImageAnnotatorClient()
 
-image_path = 'images\download.jpg'
+image_path = 'images\Spanish-Alphabet-1.png'
 
 Text_Detection = namedtuple('Text_Detection', ('description', 'bounding_poly'))
 
