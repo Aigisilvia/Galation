@@ -1,0 +1,18 @@
+{
+    "name": "Galation",
+    "description": "Chrome extention for Galation shellhacks 2023 project for auto translating images directly from chrome",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icons/icon-128.png"
+    },
+    
+    "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+    }
+  }
