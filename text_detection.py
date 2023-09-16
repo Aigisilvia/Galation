@@ -75,7 +75,7 @@ def translate_text(
             "contents": [text],
             "mime_type": "text/plain",  # mime types: text/plain, text/html
             "source_language_code": "",
-            "target_language_code": "en",
+            "target_language_code": "en-US",
         }
     )
 
