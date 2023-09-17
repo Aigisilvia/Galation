@@ -47,25 +47,76 @@ def text_detection(self):
     returnString = ''
     
     for text in texts:
-        print(f'\n"{text.description}"')
+        #print(f'\n"{text.description}"')
 
         vertices = [
             f"({vertex.x},{vertex.y})" for vertex in text.bounding_poly.vertices
         ]
 
-        print("bounds: {}".format(","(vertices)))
+        #print("bounds: {}".format(",".join(vertices)))
         returnString +=  text.description
         vertices_list.append(vertices)
     
     return returnString
     
 texts = text_detection(image_path)
-print(vertices_list[0][0])
 print(texts)
 
-def bubble_size():
-    
+vList = []
 
+for layer in vertices_list:
+    for row in layer:
+        pair = []
+        for element in row:
+            if element.isdigit() or (element[0] == '-' and element[1:].isdigit()):
+                pair.append(int(element))
+            else:
+                if pair:
+                    vList.append(pair)
+                    pair = []
+        if pair:
+            vList.append(pair)
+
+vListC = []
+#print(vList)
+for pair in vList:
+    combined_integer = int("".join(map(str, pair)))
+    vListC.append(combined_integer)
+#print(vListC)
+
+"""
+sizeResultx = []
+prev_entry = None
+
+for i in range(len(vListC)):
+    current_entry = vListC[i]
+    
+    if i % 8 == 0 or i == 0:
+        if prev_entry is not None and current_entry - prev_entry > 100:
+            sizeResultx.append(prev_entry)
+            sizeResultx.append(current_entry)
+            break
+        prev_entry = current_entry
+
+print(sizeResultx)
+
+sizeResulty = []
+prev_entry = None
+
+for i in range(len(vListC)):
+    current_entry = vListC[i]
+    
+    if i % 8 == 0 or i == 0:
+        if prev_entry is not None and current_entry - prev_entry > 100:
+            sizeResultx.append(prev_entry)
+            sizeResultx.append(current_entry)
+            break
+        prev_entry = current_entry
+
+print(sizeResultx)
+"""
+
+textTrans = ''
 
 def translate_text(
     text: str = texts, project_id: str = "shell-trandslation-2023"
@@ -99,4 +150,5 @@ def translate_text(
     return response
 
 textT = translate_text(texts)
-#rint(textT)
+print("\n\n")
+print(textTrans)
