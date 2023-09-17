@@ -63,8 +63,6 @@ texts = text_detection(image_path)
 print(vertices_list[0][0])
 print(texts)
 
-def bubble_size():
-    
 
 
 def translate_text(
