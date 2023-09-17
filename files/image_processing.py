@@ -55,4 +55,4 @@ def process_image(top_left, bottom_right, text, path):
 
 
 
-process_image((100,100),(400,250), 'She farded on my dick', 'images\download.jpg')
+process_image((100,100),(200,250), 'Darn Couldnt finish!', 'images\download.jpg')
