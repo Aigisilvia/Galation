@@ -150,5 +150,6 @@ def translate_text(
     return response
 
 textT = translate_text(texts)
-print("\n\n")
-print(textTrans)
+print("\n")
+
+print(textT)
