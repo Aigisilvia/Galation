@@ -23,3 +23,17 @@ voice2=texttospeech_v1.voiceselectionparams (
     language_code='vi-VN'
 )
 
+print(client.list_voices)
+audio_config= texttospeech_v1.AudioConfig(
+    audio_encoding=texttospeech_v1.audioencoding.mp3
+)
+
+response1=client.synthesize_speech (
+    input=synthesis_input,
+    voices= voice1,
+    audio_config=audio_config    
+)
+
+with open('audio.mp3', 'wb') as output:
+    output.write(response1.audio_content)
+
