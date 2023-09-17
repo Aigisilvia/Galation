@@ -30,7 +30,7 @@ def gets_url(classes, location, source):
             driver.quit()  #stops grabbing the page, it has grabbed all information needed and attributes
     return results
 
-#puts image and attributes into a png
+#puts image and attributes into a png, returns the file path <-------- Very Useful, will be used
 def convert_url():
     if __name__ == "__main__":
         returned_results = gets_url("s-item__image-wrapper image-treatment", "img", "src")
@@ -38,7 +38,7 @@ def convert_url():
         image_content = requests.get(b).content
         image_file = io.BytesIO(image_content)
         image = Image.open(image_file).convert("RGB")
-        file_path = Path("C:\Users\Grayson\Pictures", hashlib.sha1(image_content).hexdigest()[:10] + ".png") #Change to your file path for now (we can have a user defined path or a general one later)
+        file_path = Path('C:\Users\Grayson\Documents\GitHub\Galation\images', hashlib.sha1(image_content).hexdigest()[:10] + ".png")
         image.save(file_path, "PNG", quality=80)
         
         #returns the file path of the image in order to upload it to the bucket
