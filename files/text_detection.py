@@ -1,19 +1,26 @@
 import io
 import os
+import sys
+import numpy
+import re
 from collections import namedtuple
 from PIL import Image, ImageDraw, ImageFont
 from google.cloud import vision
 from google.cloud import translate
 
+numpy.set_printoptions(threshold=sys.maxsize)
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'shentai_file.json'
 
 client = vision.ImageAnnotatorClient()
 
-image_path = 'images\Spanish-Alphabet-1.png'
+image_path = 'images\ONE-PIECE-618x472.png'
 
 Text_Detection = namedtuple('Text_Detection', ('description', 'bounding_poly'))
 
+parX = []
+parY = []
+vertices_list = []
 
 def prepare_image_local(image_path):
     try:
@@ -46,13 +53,19 @@ def text_detection(self):
             f"({vertex.x},{vertex.y})" for vertex in text.bounding_poly.vertices
         ]
 
-        print("bounds: {}".format(",".join(vertices)))
+        print("bounds: {}".format(","(vertices)))
         returnString +=  text.description
+        vertices_list.append(vertices)
     
     return returnString
     
 texts = text_detection(image_path)
+print(vertices_list[0][0])
 print(texts)
+
+def bubble_size():
+    
+
 
 def translate_text(
     text: str = texts, project_id: str = "shell-trandslation-2023"
