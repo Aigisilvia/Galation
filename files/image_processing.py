@@ -1,7 +1,4 @@
 import cv2
-import glob
-from PIL import Image, ImageDraw, ImageFont
-
 
 def white_out(x1, x2, y1, y2, path):
     img = cv2.imread(path)
