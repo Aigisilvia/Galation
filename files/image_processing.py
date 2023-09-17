@@ -1,21 +1,18 @@
 import cv2
+import tkinter as tk
+from tkinter import filedialog
+from PIL import Image, ImageTk, ImageDraw 
 
-def white_out(x1, x2, y1, y2, path):
+def process_image(x1, x2, y1, y2, path, text):
     img = cv2.imread(path)
     cv2.rectangle(img,(x1,y1),(x2,y2),(255, 255, 255),-1)
-    cv2.imwrite(path, img)
-        
-        
-#white(500, 600, 200, 300, 'images\download.jpg')
-
-def sharpie_marker(x ,y, path, text):
-    # Reading an image in default mode
-    img = cv2.imread(path)
     font = cv2.FONT_HERSHEY_COMPLEX_SMALL
-    org = (x, y)
-    fontScale = 1
+    org = (x, y) #Origin of character
+    fontScale = .75
     color = (0, 0, 0)
-    thickness = 2
+    thickness = 1
     img = cv2.putText(img, text, org, font, fontScale, color, thickness, cv2.LINE_AA, False) # Change to true to change where it renders from
-    # Displaying the image
     cv2.imwrite(path, img)
+    
+process_image(500, 750, 200, 300, 'images\download.jpg', 'She farded on my dick')
+
