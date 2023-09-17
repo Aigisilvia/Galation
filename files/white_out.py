@@ -3,9 +3,8 @@ import matplotlib.patches as patches
 from PIL import Image
 import numpy as np
 
-def white(anchorX,anchorY,width,height):
-
-    x = np.array(Image.open('images\download.jpg'), dtype=np.uint8)
+def white(anchorX,anchorY,width,height,path):
+    x = np.array(Image.open(path), dtype=np.uint8)
     plt.imshow(x)
   
     # Create figure and axes
@@ -23,7 +22,7 @@ def white(anchorX,anchorY,width,height):
     
     
         
-white(50,50,100,100)        
+white(50,50,100,100,'images\download.jpg')        
         
         
         
