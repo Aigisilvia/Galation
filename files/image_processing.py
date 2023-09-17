@@ -55,4 +55,4 @@ def process_image(top_left, bottom_right, text, path):
 
 
 
-process_image((100,100),(200,250), 'Darn Couldnt finish!', 'images\download.jpg')
+#process_image((100,100),(200,250), text, 'images\ONE-PIECE-618x472.png')
