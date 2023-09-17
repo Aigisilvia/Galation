@@ -1,28 +1,12 @@
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-from PIL import Image
-import numpy as np
+import cv2
+import glob
+from PIL import Image, ImageDraw, ImageFont
 
-def white(anchorX,anchorY,width,height,path):
-    x = np.array(Image.open(path), dtype=np.uint8)
-    plt.imshow(x)
-  
-    # Create figure and axes
-    fig, ax = plt.subplots(1)
-  
-    # Display the image
-    ax.imshow(x)
-  
-    # Create a Rectangle patch
-    rect = patches.Rectangle((anchorX, anchorY), width, height, linewidth=1, edgecolor='w', facecolor="w")
-  
-    # Add the patch to the Axes
-    ax.add_patch(rect)
-    plt.show()
-    
-    
-        
-white(50,50,100,100,'images\download.jpg')        
+
+def white(x1, x2, y1, y2, path):
+    img = cv2.imread(path)
+    cv2.rectangle(img,(x1,y1),(x2,y2),(255, 255, 255),-1)
+    cv2.imwrite(path, img)
         
         
-        
+#white(500, 600, 200, 300, 'images\download.jpg')
