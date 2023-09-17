@@ -70,7 +70,7 @@ def bubble_size():
 def translate_text(
     text: str = texts, project_id: str = "shell-trandslation-2023"
 
-) -> translate.TranslationServiceClient:
+ ) -> translate.TranslationServiceClient:
     """Translating Text."""
 
     client = translate.TranslationServiceClient()
