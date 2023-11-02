@@ -47,13 +47,13 @@ def text_detection(self):
     returnString = ''
     
     for text in texts:
-        #print(f'\n"{text.description}"')
+        print(f'\n"{text.description}"')
 
         vertices = [
             f"({vertex.x},{vertex.y})" for vertex in text.bounding_poly.vertices
         ]
 
-        #print("bounds: {}".format(",".join(vertices)))
+        print("bounds: {}".format(",".join(vertices)))
         returnString +=  text.description
         vertices_list.append(vertices)
     
